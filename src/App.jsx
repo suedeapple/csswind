@@ -229,7 +229,7 @@ export default function CSSWind() {
 
 	const shareUrl = encodeURIComponent("https://www.csswind.com");
 	const homeShareText = encodeURIComponent(
-		`csswind — the CSS and Tailwind quiz. Test your knowledge!`,
+		`CSSwind — the CSS and Tailwind quiz. Test your knowledge!`,
 	);
 	const homeShareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${homeShareText}&url=${shareUrl}`,
@@ -237,7 +237,7 @@ export default function CSSWind() {
 		linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
 	};
 	const shareText = encodeURIComponent(
-		`I scored ${finalScore} on csswind — the CSS and Tailwind quiz. Can you beat me?`,
+		`I scored ${finalScore} on CSSwind — the CSS and Tailwind quiz. Can you beat me?`,
 	);
 	const shareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
@@ -254,7 +254,7 @@ export default function CSSWind() {
 					<header className="hdr">
 						<span className="logo" onClick={goHome}>
 							<img src="/logo.svg" alt="" className="logo-img" />
-							<span className="logo-accent">css</span>wind
+							<span className="logo-accent">CSS</span>wind
 						</span>
 					</header>
 
