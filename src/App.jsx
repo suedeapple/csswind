@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { POOL } from "./pool.js";
-import logoSvg from "./assets/logo.svg";
 
-const TOTAL_Q = 20;
+const TOTAL_Q = window.location.hostname === "localhost" ? 20 : 20;
 const TOTAL_TIME = 240;
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────
@@ -201,6 +200,16 @@ export default function CSSWind() {
 	const scorePercent = Math.round((correctCount / TOTAL_Q) * 100);
 	const hintClass = `hint${inputState === "correct" ? " ok" : inputState === "wrong" ? " bad" : hint ? " pass" : ""}`;
 
+	const shareText = encodeURIComponent(
+		`I scored ${correctCount}/${TOTAL_Q} on csswind — the Tailwind CSS quiz. Can you beat me?`,
+	);
+	const shareUrl = encodeURIComponent("https://www.csswind.com");
+	const shareLinks = {
+		x: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
+		facebook: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
+		linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
+	};
+
 	// ── Render ─────────────────────────────────────────────────────────────────
 
 	return (
@@ -209,7 +218,7 @@ export default function CSSWind() {
 				<div className="wrap">
 					<header className="hdr">
 						<span className="logo" onClick={goHome}>
-							<img src={logoSvg} alt="" className="logo-img" />
+							<img src="/logo.svg" alt="" className="logo-img" />
 							<span className="logo-accent">css</span>wind
 						</span>
 					</header>
@@ -283,6 +292,34 @@ export default function CSSWind() {
 												</li>
 											))}
 										</ul>
+									</div>
+
+									<div className="share-row">
+										<span className="share-label">Share</span>
+										<a
+											className="share-btn"
+											href={shareLinks.facebook}
+											target="_blank"
+											rel="noreferrer"
+										>
+											Facebook
+										</a>
+										<a
+											className="share-btn"
+											href={shareLinks.x}
+											target="_blank"
+											rel="noreferrer"
+										>
+											X
+										</a>
+										<a
+											className="share-btn"
+											href={shareLinks.linkedin}
+											target="_blank"
+											rel="noreferrer"
+										>
+											LinkedIn
+										</a>
 									</div>
 								</section>
 							</>
@@ -426,6 +463,35 @@ export default function CSSWind() {
 												</div>
 											</div>
 										))}
+									</div>
+
+									<div className="share-row">
+										<span className="share-label">Share Score</span>
+										<a
+											className="share-btn"
+											href={shareLinks.facebook}
+											target="_blank"
+											rel="noreferrer"
+										>
+											Facebook
+										</a>
+										<a
+											className="share-btn"
+											href={shareLinks.x}
+											target="_blank"
+											rel="noreferrer"
+										>
+											X
+										</a>
+
+										<a
+											className="share-btn"
+											href={shareLinks.linkedin}
+											target="_blank"
+											rel="noreferrer"
+										>
+											LinkedIn
+										</a>
 									</div>
 
 									<div className="btn-row">
