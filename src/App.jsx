@@ -200,10 +200,18 @@ export default function CSSWind() {
 	const scorePercent = Math.round((correctCount / TOTAL_Q) * 100);
 	const hintClass = `hint${inputState === "correct" ? " ok" : inputState === "wrong" ? " bad" : hint ? " pass" : ""}`;
 
+	const shareUrl = encodeURIComponent("https://www.csswind.com");
+	const homeShareText = encodeURIComponent(
+		`csswind — the Tailwind CSS quiz. Test your knowledge!`,
+	);
+	const homeShareLinks = {
+		x: `https://twitter.com/intent/tweet?text=${homeShareText}&url=${shareUrl}`,
+		facebook: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
+		linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
+	};
 	const shareText = encodeURIComponent(
 		`I scored ${correctCount}/${TOTAL_Q} on csswind — the Tailwind CSS quiz. Can you beat me?`,
 	);
-	const shareUrl = encodeURIComponent("https://www.csswind.com");
 	const shareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
 		facebook: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
@@ -298,7 +306,7 @@ export default function CSSWind() {
 										<span className="share-label">Share</span>
 										<a
 											className="share-btn"
-											href={shareLinks.facebook}
+											href={homeShareLinks.facebook}
 											target="_blank"
 											rel="noreferrer"
 										>
@@ -306,7 +314,7 @@ export default function CSSWind() {
 										</a>
 										<a
 											className="share-btn"
-											href={shareLinks.x}
+											href={homeShareLinks.x}
 											target="_blank"
 											rel="noreferrer"
 										>
@@ -314,7 +322,7 @@ export default function CSSWind() {
 										</a>
 										<a
 											className="share-btn"
-											href={shareLinks.linkedin}
+											href={homeShareLinks.linkedin}
 											target="_blank"
 											rel="noreferrer"
 										>
