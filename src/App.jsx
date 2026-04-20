@@ -515,7 +515,7 @@ export default function CSSWind() {
 						)}
 					</main>
 					<footer className="footer">
-						<p>Not affiliated with or endorsed by Tailwind Labs, Inc.</p>
+						<p>Not affiliated or endorsed by Tailwind Labs, Inc.</p>
 						<p>
 							© {new Date().getFullYear()}{" "}
 							<a href="http://www.suedeapple.co.uk" target="_blank">
