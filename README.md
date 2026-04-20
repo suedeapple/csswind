@@ -2,7 +2,7 @@
 
 Live site: [csswind.com](https://www.csswind.com)
 
-A terminal-styled quiz app for learning Tailwind CSS. Each round gives you 20 questions, mixing Tailwind class to CSS property and CSS property to Tailwind class. You have 4 minutes to answer as many as you can from memory.
+A terminal-styled quiz app for learning CSS and Tailwind. Each round gives you 20 questions, mixing Tailwind class to CSS property and CSS property to Tailwind class. You have 4 minutes to answer as many as you can from memory.
 
 ## How it works
 

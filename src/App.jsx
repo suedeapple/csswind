@@ -202,7 +202,7 @@ export default function CSSWind() {
 
 	const shareUrl = encodeURIComponent("https://www.csswind.com");
 	const homeShareText = encodeURIComponent(
-		`csswind — the Tailwind CSS quiz. Test your knowledge!`,
+		`csswind — the CSS and Tailwind quiz. Test your knowledge!`,
 	);
 	const homeShareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${homeShareText}&url=${shareUrl}`,
@@ -210,7 +210,7 @@ export default function CSSWind() {
 		linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
 	};
 	const shareText = encodeURIComponent(
-		`I scored ${correctCount}/${TOTAL_Q} on csswind — the Tailwind CSS quiz. Can you beat me?`,
+		`I scored ${correctCount}/${TOTAL_Q} on csswind — the CSS and Tailwind quiz. Can you beat me?`,
 	);
 	const shareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
