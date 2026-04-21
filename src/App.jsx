@@ -255,8 +255,12 @@ export default function CSSWind() {
 	const homeShareText = encodeURIComponent(
 		`CSSwind — the CSS and Tailwind quiz. Test your Frontend knowledge!`,
 	);
-	const homeEmailSubject = encodeURIComponent(`CSSwind — the CSS and Tailwind quiz`);
-	const homeEmailBody = encodeURIComponent(`Hey, check out CSSwind — a quiz that tests your CSS and Tailwind knowledge!\n\nhttps://www.csswind.com`);
+	const homeEmailSubject = encodeURIComponent(
+		`CSSwind — the CSS and Tailwind quiz`,
+	);
+	const homeEmailBody = encodeURIComponent(
+		`Hey, check out CSSwind — a quiz that tests your CSS and Tailwind knowledge!\n\nhttps://www.csswind.com`,
+	);
 	const homeShareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${homeShareText}&url=${shareUrl}`,
 		facebook: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
@@ -266,8 +270,12 @@ export default function CSSWind() {
 	const shareText = encodeURIComponent(
 		`I scored ${finalScore} on CSSwind (${difficulty} mode) — the CSS and Tailwind quiz. Can you beat me?`,
 	);
-	const emailSubject = encodeURIComponent(`I scored ${finalScore} on CSSwind — can you beat me?`);
-	const emailBody = encodeURIComponent(`I just scored ${finalScore} on CSSwind (${difficulty} mode) — the CSS and Tailwind quiz. Can you beat me?\n\nhttps://www.csswind.com`);
+	const emailSubject = encodeURIComponent(
+		`I scored ${finalScore} on CSSwind — can you beat me?`,
+	);
+	const emailBody = encodeURIComponent(
+		`I just scored ${finalScore} on CSSwind (${difficulty} mode) — the CSS and Tailwind quiz. Can you beat me?\n\nhttps://www.csswind.com`,
+	);
 	const shareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
 		facebook: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
@@ -400,12 +408,11 @@ export default function CSSWind() {
 											rel="noreferrer"
 										>
 											LinkedIn
-										</a>									<a
-										className="share-btn"
-										href={homeShareLinks.email}
-									>
-										Email
-									</a>									</div>
+										</a>{" "}
+										<a className="share-btn" href={homeShareLinks.email}>
+											Email
+										</a>{" "}
+									</div>
 
 									<div className="book-promo">
 										<span className="book-promo-label">
@@ -580,12 +587,17 @@ export default function CSSWind() {
 											>
 												LinkedIn
 											</a>
-										<a
-											className="share-btn"
-											href={shareLinks.email}
-										>
-											Email
-										</a>
+											<a className="share-btn" href={shareLinks.email}>
+												Email
+											</a>
+										</div>
+
+										<div className="book-promo">
+											<span className="book-promo-label">
+												Recommended reading
+											</span>
+											<a
+												className="book-promo-link"
 												href="https://theosoti.com/you-dont-need-js/?utm_source=csswind&utm_medium=referral&utm_campaign=results"
 												target="_blank"
 												rel="noreferrer"
