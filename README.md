@@ -29,7 +29,7 @@ npm run dev
 
 ## Testing
 
-- Brendan Rice @ [gumpshen.com/](https://gumpshen.com/)
+- Brendan Rice @ [gumpshen.com/](https://gumpshen.com)
 
 ## Disclaimer
 
