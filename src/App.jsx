@@ -130,16 +130,27 @@ export default function CSSWind() {
 
 	function buildPool() {
 		if (difficulty === "easy") {
-			return POOL.filter((q) => q.level === "easy");
+			// guarantee at least 1 normal question, rest from easy
+			const normalPool = shuffle(POOL.filter((q) => q.level === "normal"));
+			const easyPool = shuffle(POOL.filter((q) => q.level === "easy"));
+			return shuffle([
+				...normalPool.slice(0, 1),
+				...easyPool.slice(0, TOTAL_Q - 1),
+			]);
 		}
 		if (difficulty === "normal") {
-			return POOL.filter((q) => q.level === "easy" || q.level === "normal");
+			// guarantee at least 8 normal questions, rest from easy
+			const normalPool = shuffle(POOL.filter((q) => q.level === "normal"));
+			const easyPool = shuffle(POOL.filter((q) => q.level === "easy"));
+			const normalPick = normalPool.slice(0, 8);
+			const easyPick = easyPool.slice(0, TOTAL_Q - 8);
+			return shuffle([...normalPick, ...easyPick]);
 		}
-		// expert: guarantee at least 2 expert questions, rest from any level
+		// expert: guarantee at least 5 expert questions, rest from any level
 		const expertPool = shuffle(POOL.filter((q) => q.level === "expert"));
 		const otherPool = shuffle(POOL.filter((q) => q.level !== "expert"));
-		const expertPick = expertPool.slice(0, 2);
-		const otherPick = otherPool.slice(0, TOTAL_Q - 2);
+		const expertPick = expertPool.slice(0, 5);
+		const otherPick = otherPool.slice(0, TOTAL_Q - 5);
 		return shuffle([...expertPick, ...otherPick]);
 	}
 
@@ -541,6 +552,7 @@ export default function CSSWind() {
 												<span className="r-num">{finalScore}</span>
 											</div>
 											<div className="r-msg">{scoreMessage(correctCount)}</div>
+											<div className="r-level">Level: {difficulty}</div>
 										</div>
 
 										<div className="stats">

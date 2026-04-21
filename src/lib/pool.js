@@ -5,8 +5,8 @@ export const POOL = [
 	{ tw: "hidden", css: "display: none", level: "easy" },
 	{ tw: "block", css: "display: block", level: "easy" },
 	{ tw: "inline", css: "display: inline", level: "easy" },
-	{ tw: "inline-flex", css: "display: inline-flex", level: "normal" },
-	{ tw: "inline-block", css: "display: inline-block", level: "normal" },
+	{ tw: "inline-flex", css: "display: inline-flex", level: "easy" },
+	{ tw: "inline-block", css: "display: inline-block", level: "easy" },
 	{ tw: "contents", css: "display: contents", level: "normal" },
 	{ tw: "flow-root", css: "display: flow-root", level: "normal" },
 	// Position
@@ -15,7 +15,7 @@ export const POOL = [
 	{ tw: "fixed", css: "position: fixed", level: "easy" },
 	{ tw: "sticky", css: "position: sticky", level: "easy" },
 	{ tw: "static", css: "position: static", level: "easy" },
-	{ tw: "inset-0", css: "inset: 0px", level: "expert" },
+	{ tw: "inset-0", css: "inset: 0px", level: "easy" },
 	{ tw: "top-[50%]", css: "top: 50%", level: "normal" },
 	{ tw: "bottom-[50%]", css: "bottom: 50%", level: "normal" },
 	{ tw: "bottom-[20px]", css: "bottom: 20px", level: "normal" },
@@ -103,7 +103,7 @@ export const POOL = [
 	{ tw: "font-light", css: "font-weight: 300", level: "normal" },
 	{ tw: "font-normal", css: "font-weight: 400", level: "easy" },
 	{ tw: "font-medium", css: "font-weight: 500", level: "easy" },
-	{ tw: "font-semibold", css: "font-weight: 600", level: "easy" },
+	{ tw: "font-semibold", css: "font-weight: 600", level: "normal" },
 	{ tw: "font-bold", css: "font-weight: 700", level: "easy" },
 	{ tw: "font-extrabold", css: "font-weight: 800", level: "normal" },
 	{ tw: "font-black", css: "font-weight: 900", level: "expert" },
@@ -178,9 +178,9 @@ export const POOL = [
 	{ tw: "flex-wrap-reverse", css: "flex-wrap: wrap-reverse", level: "normal" },
 	{ tw: "flex-nowrap", css: "flex-wrap: nowrap", level: "normal" },
 	// Flexbox - grow / shrink
-	{ tw: "grow", css: "flex-grow: 1", level: "expert" },
+	{ tw: "grow", css: "flex-grow: 1", level: "normal" },
 	{ tw: "grow-0", css: "flex-grow: 0", level: "expert" },
-	{ tw: "shrink", css: "flex-shrink: 1", level: "expert" },
+	{ tw: "shrink", css: "flex-shrink: 1", level: "normal" },
 	{ tw: "shrink-0", css: "flex-shrink: 0", level: "expert" },
 	// Flexbox - shorthand
 	{ tw: "flex-1", css: "flex: 1 1 0%", level: "expert" },
@@ -238,13 +238,19 @@ export const POOL = [
 	{ tw: "z-0", css: "z-index: 0", level: "easy" },
 	{ tw: "z-10", css: "z-index: 10", level: "easy" },
 	{ tw: "z-20", css: "z-index: 20", level: "easy" },
-	{ tw: "z-30", css: "z-index: 30", level: "easy" },
-	{ tw: "z-40", css: "z-index: 40", level: "easy" },
 	{ tw: "z-50", css: "z-index: 50", level: "easy" },
 	{ tw: "z-auto", css: "z-index: auto", level: "expert" },
 	{ tw: "z-[100]", css: "z-index: 100", level: "normal" },
 	{ tw: "z-[9999]", css: "z-index: 9999", level: "normal" },
 	{ tw: "z-[-1]", css: "z-index: -1", level: "normal" },
+	// Order
+	{ tw: "order-first", css: "order: -9999", level: "expert" },
+	{ tw: "order-last", css: "order: 9999", level: "expert" },
+	{ tw: "order-none", css: "order: 0", level: "normal" },
+	{ tw: "order-1", css: "order: 1", level: "easy" },
+	{ tw: "order-2", css: "order: 2", level: "easy" },
+	{ tw: "order-3", css: "order: 3", level: "easy" },
+	{ tw: "order-[5]", css: "order: 5", level: "normal" },
 	// Opacity
 	{ tw: "opacity-0", css: "opacity: 0", level: "easy" },
 	{ tw: "opacity-25", css: "opacity: 0.25", level: "normal" },
@@ -325,6 +331,20 @@ export const POOL = [
 	{ tw: "bg-fixed", css: "background-attachment: fixed", level: "expert" },
 	{ tw: "bg-local", css: "background-attachment: local", level: "expert" },
 	{ tw: "bg-scroll", css: "background-attachment: scroll", level: "expert" },
+	// Background - position
+	{ tw: "bg-center", css: "background-position: center", level: "easy" },
+	{ tw: "bg-top", css: "background-position: top", level: "easy" },
+	{ tw: "bg-bottom", css: "background-position: bottom", level: "easy" },
+	{ tw: "bg-left", css: "background-position: left", level: "easy" },
+	{ tw: "bg-right", css: "background-position: right", level: "easy" },
+	{ tw: "bg-left-top", css: "background-position: left top", level: "normal" },
+	{
+		tw: "bg-right-bottom",
+		css: "background-position: right bottom",
+		level: "normal",
+	},
+	// Box shadow
+
 	// Overflow
 	{ tw: "overflow-hidden", css: "overflow: hidden", level: "easy" },
 	{ tw: "overflow-auto", css: "overflow: auto", level: "easy" },
@@ -333,6 +353,23 @@ export const POOL = [
 	{ tw: "overflow-clip", css: "overflow: clip", level: "expert" },
 	{ tw: "overflow-x-hidden", css: "overflow-x: hidden", level: "expert" },
 	{ tw: "overflow-y-auto", css: "overflow-y: auto", level: "expert" },
+	// Outline
+	{
+		tw: "outline-none",
+		css: "outline: 2px solid transparent",
+		level: "normal",
+	},
+	{ tw: "outline", css: "outline-style: solid", level: "easy" },
+	{ tw: "outline-dashed", css: "outline-style: dashed", level: "normal" },
+	{ tw: "outline-dotted", css: "outline-style: dotted", level: "normal" },
+	{ tw: "outline-double", css: "outline-style: double", level: "expert" },
+	{ tw: "outline-0", css: "outline-width: 0px", level: "normal" },
+	{ tw: "outline-1", css: "outline-width: 1px", level: "normal" },
+	{ tw: "outline-2", css: "outline-width: 2px", level: "normal" },
+	{ tw: "outline-4", css: "outline-width: 4px", level: "normal" },
+	{ tw: "outline-offset-0", css: "outline-offset: 0px", level: "expert" },
+	{ tw: "outline-offset-2", css: "outline-offset: 2px", level: "expert" },
+	{ tw: "outline-offset-4", css: "outline-offset: 4px", level: "expert" },
 	// Transforms
 	{ tw: "rotate-0", css: "transform: rotate(0deg)", level: "expert" },
 	{ tw: "rotate-45", css: "transform: rotate(45deg)", level: "expert" },
@@ -398,9 +435,9 @@ export const POOL = [
 	{ tw: "box-border", css: "box-sizing: border-box", level: "normal" },
 	{ tw: "box-content", css: "box-sizing: content-box", level: "normal" },
 	// Float
-	{ tw: "float-left", css: "float: left", level: "normal" },
-	{ tw: "float-right", css: "float: right", level: "normal" },
-	{ tw: "float-none", css: "float: none", level: "normal" },
+	{ tw: "float-left", css: "float: left", level: "easy" },
+	{ tw: "float-right", css: "float: right", level: "easy" },
+	{ tw: "float-none", css: "float: none", level: "easy" },
 	// Vertical align
 	{ tw: "align-top", css: "vertical-align: top", level: "normal" },
 	{ tw: "align-middle", css: "vertical-align: middle", level: "normal" },
@@ -413,7 +450,7 @@ export const POOL = [
 		level: "expert",
 	},
 	// Cursor
-	{ tw: "cursor-pointer", css: "cursor: pointer", level: "normal" },
+	{ tw: "cursor-pointer", css: "cursor: pointer", level: "easy" },
 	{ tw: "cursor-not-allowed", css: "cursor: not-allowed", level: "expert" },
 	{ tw: "cursor-default", css: "cursor: default", level: "expert" },
 	{ tw: "cursor-wait", css: "cursor: wait", level: "expert" },
@@ -464,6 +501,24 @@ export const POOL = [
 	{ tw: "list-none", css: "list-style-type: none", level: "normal" },
 	{ tw: "list-disc", css: "list-style-type: disc", level: "normal" },
 	{ tw: "list-decimal", css: "list-style-type: decimal", level: "normal" },
+	// Text color
+	{ tw: "text-[#ff0000]", css: "color: #ff0000", level: "normal" },
+	{ tw: "text-[#ffffff]", css: "color: #ffffff", level: "easy" },
+	{ tw: "text-[#000000]", css: "color: #000000", level: "easy" },
+	{ tw: "text-[#3b82f6]", css: "color: #3b82f6", level: "normal" },
+
+	{ tw: "text-[#6366f1]", css: "color: #6366f1", level: "normal" },
+	{ tw: "text-[rgb(255,0,0)]", css: "color: rgb(255,0,0)", level: "expert" },
+	{
+		tw: "text-[rgba(0,0,0,0.5)]",
+		css: "color: rgba(0,0,0,0.5)",
+		level: "expert",
+	},
+	{
+		tw: "text-[hsl(220,90%,60%)]",
+		css: "color: hsl(220,90%,60%)",
+		level: "expert",
+	},
 	// Mix blend mode
 	{ tw: "mix-blend-normal", css: "mix-blend-mode: normal", level: "expert" },
 	{
@@ -499,4 +554,25 @@ export const POOL = [
 		css: "will-change: transform",
 		level: "expert",
 	},
+	// Filters
+	{ tw: "grayscale", css: "filter: grayscale(100%)", level: "normal" },
+	{ tw: "grayscale-0", css: "filter: grayscale(0)", level: "expert" },
+	{ tw: "invert", css: "filter: invert(100%)", level: "normal" },
+	{ tw: "invert-0", css: "filter: invert(0)", level: "expert" },
+	{ tw: "sepia", css: "filter: sepia(100%)", level: "normal" },
+	{ tw: "sepia-0", css: "filter: sepia(0)", level: "expert" },
+	{ tw: "blur-none", css: "filter: blur(0)", level: "normal" },
+	{ tw: "blur", css: "filter: blur(8px)", level: "normal" },
+	{ tw: "blur-md", css: "filter: blur(12px)", level: "expert" },
+	{ tw: "brightness-0", css: "filter: brightness(0)", level: "normal" },
+	{ tw: "brightness-50", css: "filter: brightness(.5)", level: "normal" },
+	{ tw: "brightness-100", css: "filter: brightness(1)", level: "normal" },
+	{ tw: "brightness-150", css: "filter: brightness(1.5)", level: "expert" },
+	{ tw: "contrast-0", css: "filter: contrast(0)", level: "normal" },
+	{ tw: "contrast-100", css: "filter: contrast(1)", level: "normal" },
+	{ tw: "contrast-150", css: "filter: contrast(1.5)", level: "expert" },
+	// Accent color
+	{ tw: "accent-auto", css: "accent-color: auto", level: "normal" },
+	{ tw: "accent-[#3b82f6]", css: "accent-color: #3b82f6", level: "normal" },
+	{ tw: "accent-[#10b981]", css: "accent-color: #10b981", level: "normal" },
 ];

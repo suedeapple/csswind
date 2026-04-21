@@ -633,6 +633,13 @@ main {
 	text-wrap:balance;
 }
 
+.r-level {
+	font-size: 0.75rem;
+	color: var(--muted);
+	margin-top: 6px;
+	text-transform: capitalize;
+}
+
 .stats {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
