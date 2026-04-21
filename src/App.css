@@ -1,3 +1,9 @@
+/* Ad banner */
+.ad-banner {
+	margin: 24px 0 0;
+	width: 100%;
+}
+
 /* Footer */
 .footer {
 	text-align: center;
@@ -488,6 +494,19 @@ main {
 	color: var(--muted);
 	letter-spacing: 0.05em;
 }
+@media (max-width: 600px) {
+	.book-promo {
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		text-align: center;
+	}
+	.book-promo-link {
+		flex-direction: column;
+		align-items: center;
+		gap: 2px;
+	}
+}
 
 /* Buttons */
 .btn-row {
@@ -544,6 +563,25 @@ main {
 .btn-ghost:hover {
 	color: var(--text);
 	border-color: var(--text);
+}
+.level-picker {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+.btn-level {
+	flex: 1;
+	text-transform: capitalize;
+	color: var(--muted);
+	border-color: var(--border);
+}
+.btn-level:hover {
+	color: var(--text);
+	border-color: var(--text);
+}
+.btn-level.active {
+	color: var(--accent);
+	border-color: var(--accent);
 }
 
 /* Results */

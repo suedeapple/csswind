@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { POOL } from "./pool.js";
 
-const TOTAL_Q = window.location.hostname === "localhost" ? 1 : 20;
-const TOTAL_TIME = 240;
+const TOTAL_Q = window.location.hostname === "localhost" ? 10 : 10;
+const TOTAL_TIME = 120;
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────
 
@@ -38,40 +38,73 @@ function formatTime(seconds) {
 }
 
 function scoreMessage(score) {
-	if (score >= 1100) return "Flawless. You ARE the docs, or Kevin Powell.";
-	if (score >= 1060) return "Basically a Tailwind compiler at this point.";
-	if (score >= 1020)
+	if (score >= 580) return "Flawless. You ARE the docs, or Kevin Powell.";
+	if (score >= 555) return "Basically a Tailwind compiler at this point.";
+	if (score >= 530)
 		return "You could write the cheat sheet. Or maybe you already have?";
-	if (score >= 980) return "Adam Wathan wants to hire you.";
-	if (score >= 940) return "Certified CSS nerd. Wear it with pride.";
-	if (score >= 900) return "Excellent recall and blistering speed!";
-	if (score >= 860) return "Your brain loads faster than most websites.";
-	if (score >= 820) return "Really solid. Your brain is a stylesheet.";
-	if (score >= 780) return "Great work. Tailwind would be proud. Probably.";
-	if (score >= 740) return "Strong score. The utility classes fear you.";
-	if (score >= 700) return "Good effort. Still faster than reading the docs.";
-	if (score >= 660) return "Solid. A few classes still hiding from you.";
-	if (score >= 620) return "Not bad. Your co-workers are impressed (probably).";
-	if (score >= 580) return "Decent. You know enough to be dangerous.";
-	if (score >= 540) return "Getting there. Keep grinding.";
-	if (score >= 500) return "Statistically, not terrible.";
-	if (score >= 460)
+	if (score >= 505) return "Adam Wathan wants to hire you.";
+	if (score >= 480) return "Certified CSS nerd. Wear it with pride.";
+	if (score >= 455) return "Excellent recall and blistering speed!";
+	if (score >= 430) return "Your brain loads faster than most websites.";
+	if (score >= 410) return "Really solid. Your brain is a stylesheet.";
+	if (score >= 390) return "Great work. Tailwind would be proud. Probably.";
+	if (score >= 370) return "Strong score. The utility classes fear you.";
+	if (score >= 350) return "Good effort. Still faster than reading the docs.";
+	if (score >= 330) return "Solid. A few classes still hiding from you.";
+	if (score >= 310) return "Not bad. Your co-workers are impressed (probably).";
+	if (score >= 290) return "Decent. You know enough to be dangerous.";
+	if (score >= 270) return "Getting there. Keep grinding.";
+	if (score >= 250) return "Statistically, not terrible.";
+	if (score >= 230)
 		return "Respectable. Rome wasn't built with Tailwind either.";
-	if (score >= 420) return "Keep going. You're in the learning zone.";
-	if (score >= 380) return "A work in progress. Like most stylesheets.";
-	if (score >= 340) return "Some good answers in there somewhere.";
-	if (score >= 300) return "You tried. The effort was visible.";
-	if (score >= 260) return "Hey, you showed up. That's step one.";
-	if (score >= 220) return "Somewhere out there, a CSS class is crying.";
-	if (score >= 180) return "Try Googling next time.";
-	if (score >= 140) return "Tailwind v4 probably wouldn't help either.";
-	if (score >= 80) return "Have you considered a career in backend?";
+	if (score >= 210) return "Keep going. You're in the learning zone.";
+	if (score >= 190) return "A work in progress. Like most stylesheets.";
+	if (score >= 170) return "Some good answers in there somewhere.";
+	if (score >= 150) return "You tried. The effort was visible.";
+	if (score >= 130) return "Hey, you showed up. That's step one.";
+	if (score >= 110) return "Somewhere out there, a CSS class is crying.";
+	if (score >= 90) return "Try Googling next time.";
+	if (score >= 70) return "Tailwind v4 probably wouldn't help either.";
+	if (score >= 40) return "Have you considered a career in backend?";
 	return "Yes, centering a div is hard. Keep at it.";
+}
+
+// ─── AD BANNER ────────────────────────────────────────────────────────────────
+
+const ADSENSE_CLIENT = import.meta.env.VITE_ADSENSE_CLIENT;
+const ADSENSE_SLOT = import.meta.env.VITE_ADSENSE_SLOT;
+
+function AdBanner() {
+	const ref = useRef(null);
+
+	useEffect(() => {
+		if (!ADSENSE_CLIENT || !ADSENSE_SLOT || !ref.current) return;
+		try {
+			(window.adsbygoogle = window.adsbygoogle || []).push({});
+		} catch (_) {}
+	}, []);
+
+	if (!ADSENSE_CLIENT || !ADSENSE_SLOT) return null;
+
+	return (
+		<div className="ad-banner">
+			<ins
+				ref={ref}
+				className="adsbygoogle"
+				style={{ display: "block" }}
+				data-ad-client={ADSENSE_CLIENT}
+				data-ad-slot={ADSENSE_SLOT}
+				data-ad-format="auto"
+				data-full-width-responsive="true"
+			/>
+		</div>
+	);
 }
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 export default function CSSWind() {
 	const [phase, setPhase] = useState("home"); // "home" | "quiz" | "results"
+	const [difficulty, setDifficulty] = useState("normal"); // "easy" | "normal" | "expert"
 	const [questions, setQuestions] = useState([]);
 	const [currIndex, setCurrIndex] = useState(0);
 	const [input, setInput] = useState("");
@@ -120,9 +153,25 @@ export default function CSSWind() {
 
 	// ── Game flow ──────────────────────────────────────────────────────────────
 
+	function buildPool() {
+		if (difficulty === "easy") {
+			return POOL.filter((q) => q.level === "easy");
+		}
+		if (difficulty === "normal") {
+			return POOL.filter((q) => q.level === "easy" || q.level === "normal");
+		}
+		// expert: guarantee at least 2 expert questions, rest from any level
+		const expertPool = shuffle(POOL.filter((q) => q.level === "expert"));
+		const otherPool = shuffle(POOL.filter((q) => q.level !== "expert"));
+		const expertPick = expertPool.slice(0, 2);
+		const otherPick = otherPool.slice(0, TOTAL_Q - 2);
+		return shuffle([...expertPick, ...otherPick]);
+	}
+
 	function startGame() {
-		// Pick 20 random pool entries, each with a randomly assigned direction
-		const picked = shuffle(POOL)
+		// Pick questions according to difficulty
+		const pool = buildPool();
+		const picked = shuffle(pool)
 			.slice(0, TOTAL_Q)
 			.map((q) => ({
 				...q,
@@ -271,7 +320,26 @@ export default function CSSWind() {
 											Each question shows either a Tailwind class or a CSS value
 											you type the other side from memory.
 										</p>
-										<p>20 questions · 4 minutes.</p>
+										<p>10 questions · 2 minutes.</p>
+									</div>
+
+									<button
+										className="btn btn-primary btn-play"
+										onClick={startGame}
+									>
+										Play →
+									</button>
+
+									<div className="level-picker">
+										{["easy", "normal", "expert"].map((lvl) => (
+											<button
+												key={lvl}
+												className={`btn btn-level${difficulty === lvl ? " active" : ""}`}
+												onClick={() => setDifficulty(lvl)}
+											>
+												{lvl}
+											</button>
+										))}
 									</div>
 
 									<div className="examples">
@@ -290,13 +358,6 @@ export default function CSSWind() {
 											<span className="example-answer">overflow-hidden</span>
 										</div>
 									</div>
-
-									<button
-										className="btn btn-primary btn-play"
-										onClick={startGame}
-									>
-										Play →
-									</button>
 
 									<div className="card instr-card">
 										<div className="instr-title">How it works</div>
@@ -332,6 +393,8 @@ export default function CSSWind() {
 											))}
 										</ul>
 									</div>
+
+									<AdBanner />
 
 									<div className="share-row">
 										<span className="share-label">Share</span>
@@ -549,6 +612,8 @@ export default function CSSWind() {
 											<span className="book-author">by Theo Soti</span>
 										</a>
 									</div>
+
+									<AdBanner />
 
 									<div className="btn-row">
 										<button className="btn btn-ghost" onClick={goHome}>
