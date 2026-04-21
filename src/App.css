@@ -1,6 +1,6 @@
 /* Ad banner */
 .ad-banner {
-	margin: 24px 0 0;
+	margin-bottom: 20px;
 	width: 100%;
 }
 
@@ -585,6 +585,10 @@ main {
 }
 
 /* Results */
+
+.results-section {
+	margin-bottom: 20px;
+}
 .r-header {
 	text-align: center;
 	border-bottom: 1px solid var(--border);

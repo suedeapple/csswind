@@ -87,17 +87,18 @@ function AdBanner() {
 	if (!ADSENSE_CLIENT || !ADSENSE_SLOT) return null;
 
 	return (
-		<div className="ad-banner">
+		<section className="ad-banner">
 			<ins
 				ref={ref}
 				className="adsbygoogle"
 				style={{ display: "block" }}
 				data-ad-client={ADSENSE_CLIENT}
 				data-ad-slot={ADSENSE_SLOT}
-				data-ad-format="auto"
+				data-ad-format="horizontal"
 				data-full-width-responsive="true"
+				data-color-scheme="dark"
 			/>
-		</div>
+		</section>
 	);
 }
 
@@ -394,8 +395,6 @@ export default function CSSWind() {
 										</ul>
 									</div>
 
-									<AdBanner />
-
 									<div className="share-row">
 										<span className="share-label">Share</span>
 										<a
@@ -441,6 +440,8 @@ export default function CSSWind() {
 										</a>
 									</div>
 								</section>
+
+								<AdBanner />
 							</>
 						)}
 
@@ -540,91 +541,92 @@ export default function CSSWind() {
 
 						{/* RESULTS */}
 						{phase === "results" && (
-							<section className="results-section">
-								<div className="card">
-									<div className="r-header">
-										<div className="r-score">
-											<div className="r-score-label">Score</div>
-											<span className="r-num">{finalScore}</span>
-										</div>
-										<div className="r-msg">{scoreMessage(finalScore)}</div>
-									</div>
-
-									<div className="stats">
-										<div className="stat">
-											<div className="stat-n green">{correctCount}</div>
-											<div className="stat-l">Correct</div>
-										</div>
-										<div className="stat">
-											<div className="stat-n red">{wrongCount}</div>
-											<div className="stat-l">Passed</div>
-										</div>
-										<div className="stat">
-											<div className="stat-n muted">
-												{formatTime(timeTaken)}
+							<>
+								<section className="results-section">
+									<div className="card">
+										<div className="r-header">
+											<div className="r-score">
+												<div className="r-score-label">Score</div>
+												<span className="r-num">{finalScore}</span>
 											</div>
-											<div className="stat-l">Time</div>
+											<div className="r-msg">{scoreMessage(finalScore)}</div>
+										</div>
+
+										<div className="stats">
+											<div className="stat">
+												<div className="stat-n green">{correctCount}</div>
+												<div className="stat-l">Correct</div>
+											</div>
+											<div className="stat">
+												<div className="stat-n red">{wrongCount}</div>
+												<div className="stat-l">Passed</div>
+											</div>
+											<div className="stat">
+												<div className="stat-n muted">
+													{formatTime(timeTaken)}
+												</div>
+												<div className="stat-l">Time</div>
+											</div>
+										</div>
+
+										<div className="share-row">
+											<span className="share-label">Share Score</span>
+											<a
+												className="share-btn"
+												href={shareLinks.facebook}
+												target="_blank"
+												rel="noreferrer"
+											>
+												Facebook
+											</a>
+											<a
+												className="share-btn"
+												href={shareLinks.x}
+												target="_blank"
+												rel="noreferrer"
+											>
+												X
+											</a>
+
+											<a
+												className="share-btn"
+												href={shareLinks.linkedin}
+												target="_blank"
+												rel="noreferrer"
+											>
+												LinkedIn
+											</a>
+										</div>
+
+										<div className="book-promo">
+											<span className="book-promo-label">
+												Recommended reading
+											</span>
+											<a
+												className="book-promo-link"
+												href="https://theosoti.com/you-dont-need-js/?utm_source=csswind&utm_medium=referral&utm_campaign=results"
+												target="_blank"
+												rel="noreferrer"
+											>
+												<span className="book-title">
+													You Don&rsquo;t Need JS
+												</span>
+												<span className="book-author">by Theo Soti</span>
+											</a>
+										</div>
+
+										<div className="btn-row">
+											<button className="btn btn-ghost" onClick={goHome}>
+												← Home
+											</button>
+											<button className="btn btn-primary" onClick={startGame}>
+												Play again →
+											</button>
 										</div>
 									</div>
-
-									<div className="share-row">
-										<span className="share-label">Share Score</span>
-										<a
-											className="share-btn"
-											href={shareLinks.facebook}
-											target="_blank"
-											rel="noreferrer"
-										>
-											Facebook
-										</a>
-										<a
-											className="share-btn"
-											href={shareLinks.x}
-											target="_blank"
-											rel="noreferrer"
-										>
-											X
-										</a>
-
-										<a
-											className="share-btn"
-											href={shareLinks.linkedin}
-											target="_blank"
-											rel="noreferrer"
-										>
-											LinkedIn
-										</a>
-									</div>
-
-									<div className="book-promo">
-										<span className="book-promo-label">
-											Recommended reading
-										</span>
-										<a
-											className="book-promo-link"
-											href="https://theosoti.com/you-dont-need-js/?utm_source=csswind&utm_medium=referral&utm_campaign=results"
-											target="_blank"
-											rel="noreferrer"
-										>
-											<span className="book-title">
-												You Don&rsquo;t Need JS
-											</span>
-											<span className="book-author">by Theo Soti</span>
-										</a>
-									</div>
-
-									<AdBanner />
-
-									<div className="btn-row">
-										<button className="btn btn-ghost" onClick={goHome}>
-											← Home
-										</button>
-										<button className="btn btn-primary" onClick={startGame}>
-											Play again →
-										</button>
-									</div>
-								</div>
-							</section>
+								</section>
+								<AdBanner />
+							</>
 						)}
 					</main>
 					<footer className="footer">
