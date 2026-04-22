@@ -94,11 +94,10 @@ export function scoreMessage(correct) {
 			"One out of ten. The journey begins.",
 		]);
 	return pick([
-		"Yes, centering a div is hard. Keep at it.",
 		"Did the cat walk over your keyboard?",
 		"Zero correct. The world stares back.",
 		"Did you try typing the question as the answer?",
-		"Bold strategy. It did not pay off.",
+		"CSS is hard. This quiz is hard. Don't give up!",
 		"Take up Backend development instead.",
 		"Uh oh! Better brush up on your CSS and Tailwind basics.",
 	]);
