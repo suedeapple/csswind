@@ -138,6 +138,7 @@ main {
 .example-row {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 12px;
 	font-family: var(--mono);
 	font-size: 0.875rem;
@@ -421,15 +422,27 @@ main {
 	letter-spacing: 0.08em;
 	margin-right: 4px;
 }
+@media (max-width: 375px) {
+	.share-row {
+		flex-wrap: wrap;
+		gap: 10px 8px;
+	}
+	.share-label {
+		width: 100%;
+		text-align: center;
+		margin-right: 0;
+	}
+}
 .share-btn {
-	font-family: var(--mono);
-	font-size: 0.8rem;
-	padding: 6px 12px;
+	font-size: 1rem;
+	width: 36px;
+	height: 36px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	border: 1px solid var(--border);
 	color: var(--muted);
 	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
 	background: var(--bg);
 	transition:
 		color 0.15s,

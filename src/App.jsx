@@ -68,7 +68,7 @@ function AdBanner() {
 				style={{ display: "block" }}
 				data-ad-client={ADSENSE_CLIENT}
 				data-ad-slot={ADSENSE_SLOT}
-				data-ad-format="horizontal"
+				data-ad-format="auto"
 				data-full-width-responsive="true"
 				data-color-scheme="dark"
 			/>
@@ -317,8 +317,8 @@ export default function CSSWind() {
 											Know your <em>Tailwind</em>?
 										</h1>
 										<p>
-											Each question shows either a Tailwind class or a CSS value
-											you type the other side from memory.
+											Each question shows either a Tailwind class or a CSS
+											property you type the other side from memory.
 										</p>
 										<p>10 questions · 2 minutes.</p>
 									</div>
@@ -345,17 +345,15 @@ export default function CSSWind() {
 									<div className="examples">
 										<div className="example-row">
 											<span className="example-dir">TW → CSS</span>
-											<span className="example-prompt">flex-col</span>
+											<span className="example-prompt">grid</span>
 											<span className="example-arrow">→</span>
-											<span className="example-answer">
-												flex-direction: column
-											</span>
+											<span className="example-answer">display: grid</span>
 										</div>
 										<div className="example-row">
 											<span className="example-dir">CSS → TW</span>
-											<span className="example-prompt">overflow: hidden</span>
+											<span className="example-prompt">width: 100%</span>
 											<span className="example-arrow">→</span>
-											<span className="example-answer">overflow-hidden</span>
+											<span className="example-answer">w-full</span>
 										</div>
 									</div>
 
@@ -401,28 +399,31 @@ export default function CSSWind() {
 											href={homeShareLinks.facebook}
 											target="_blank"
 											rel="noreferrer"
+											aria-label="Share on Facebook"
 										>
-											Facebook
+											<i className="fa-brands fa-facebook-f" />
 										</a>
 										<a
 											className="share-btn"
 											href={homeShareLinks.x}
 											target="_blank"
 											rel="noreferrer"
+											aria-label="Share on X"
 										>
-											X
+											<i className="fa-brands fa-x-twitter" />
 										</a>
 										<a
 											className="share-btn"
 											href={homeShareLinks.linkedin}
 											target="_blank"
 											rel="noreferrer"
+											aria-label="Share on LinkedIn"
 										>
-											LinkedIn
-										</a>{" "}
-										<a className="share-btn" href={homeShareLinks.email}>
-											Email
-										</a>{" "}
+											<i className="fa-brands fa-linkedin-in" />
+										</a>
+										<a className="share-btn" href={homeShareLinks.email} aria-label="Share via Email">
+											<i className="fa-solid fa-envelope" />
+										</a>
 									</div>
 
 									<div className="book-promo">
@@ -579,28 +580,30 @@ export default function CSSWind() {
 												href={shareLinks.facebook}
 												target="_blank"
 												rel="noreferrer"
+												aria-label="Share on Facebook"
 											>
-												Facebook
+												<i className="fa-brands fa-facebook-f" />
 											</a>
 											<a
 												className="share-btn"
 												href={shareLinks.x}
 												target="_blank"
 												rel="noreferrer"
+												aria-label="Share on X"
 											>
-												X
+												<i className="fa-brands fa-x-twitter" />
 											</a>
-
 											<a
 												className="share-btn"
 												href={shareLinks.linkedin}
 												target="_blank"
 												rel="noreferrer"
+												aria-label="Share on LinkedIn"
 											>
-												LinkedIn
+												<i className="fa-brands fa-linkedin-in" />
 											</a>
-											<a className="share-btn" href={shareLinks.email}>
-												Email
+											<a className="share-btn" href={shareLinks.email} aria-label="Share via Email">
+												<i className="fa-solid fa-envelope" />
 											</a>
 										</div>
 
