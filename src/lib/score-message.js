@@ -73,7 +73,7 @@ export function scoreMessage(correct) {
 			"You got 3. That's 30%. CSS curves don't exist, sorry.",
 			"3 out of 10. The docs miss you. Visit them sometime.",
 			"Progress! Probably. At least it's not 2.",
-			"3 right. The stylesheet is rooting for you. Quietly.",
+			"3 right. 7 absolutely wrong.",
 		]);
 	if (correct >= 2)
 		return pick([
