@@ -279,13 +279,13 @@ export default function CSSWind() {
 		email: `mailto:?subject=${homeEmailSubject}&body=${homeEmailBody}`,
 	};
 	const shareText = encodeURIComponent(
-		`I scored ${finalScore} on CSSwind (${difficulty} mode) — the CSS and Tailwind quiz. Can you beat me?`,
+		`I scored ${finalScore} on CSSwind (${difficulty} mode) in ${timeTaken}s — the CSS and Tailwind quiz. Can you beat me?`,
 	);
 	const emailSubject = encodeURIComponent(
 		`I scored ${finalScore} on CSSwind — can you beat me?`,
 	);
 	const emailBody = encodeURIComponent(
-		`I just scored ${finalScore} on CSSwind (${difficulty} mode) — the CSS and Tailwind quiz. Can you beat me?\n\nhttps://www.csswind.com`,
+		`I just scored ${finalScore} on CSSwind (${difficulty} mode) in ${timeTaken} seconds — the CSS and Tailwind quiz. Can you beat me?\n\nhttps://www.csswind.com`,
 	);
 	const shareLinks = {
 		x: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
