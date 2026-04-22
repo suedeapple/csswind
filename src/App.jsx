@@ -181,14 +181,14 @@ export default function CSSWind() {
 				.slice(prev.length)
 				.map((q) => ({ ...q, status: "skipped", chosen: "" }));
 			const final = [...prev, ...skipped];
-			endGame(final);
+			endGame(final, TOTAL_TIME);
 			return final;
 		});
 	}
 
-	function endGame(final) {
+	function endGame(final, elapsed = TOTAL_TIME - timeLeft) {
 		clearInterval(timerRef.current);
-		setTimeTaken(TOTAL_TIME - timeLeft);
+		setTimeTaken(elapsed);
 		setResults(final);
 		setPhase("results");
 	}
