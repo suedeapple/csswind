@@ -61,7 +61,7 @@ export function scoreMessage(correct) {
 		return pick([
 			"Getting there. Keep grinding.",
 			"Statistically, not terrible.",
-			"Respectable. Rome wasn't built with Tailwind either.",
+			"Did you Four-get some answers?",
 			"Keep going. You're in the learning zone.",
 			"A work in progress. Like most stylesheets.",
 			"The docs are your friend. Use them.",
