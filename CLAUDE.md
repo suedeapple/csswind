@@ -73,5 +73,5 @@ Configured by the player on the home screen:
 | Option | Values |
 | ------ | ------ |
 | Difficulty | easy, medium, expert |
-| Questions | 10 (1 min), 15 (2 min), 20 (3 min) |
+| Questions | 10 (2 min), 15 (3 min), 20 (4 min) |
 | Direction | mixed, TW → CSS, CSS → TW |
