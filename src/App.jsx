@@ -141,7 +141,7 @@ export default function CSSWind() {
 			const mediumPool = shuffle(POOL.filter((q) => q.level === "medium"));
 			const easyPool = shuffle(POOL.filter((q) => q.level === "easy"));
 			return shuffle([
-				...mediumPool.slice(0, normalCount),
+				...mediumPool.slice(0, mediumCount),
 				...easyPool.slice(0, roundSize - mediumCount),
 			]);
 		}
@@ -150,7 +150,7 @@ export default function CSSWind() {
 			const mediumPool = shuffle(POOL.filter((q) => q.level === "medium"));
 			const easyPool = shuffle(POOL.filter((q) => q.level === "easy"));
 			return shuffle([
-				...mediumPool.slice(0, normalCount),
+				...mediumPool.slice(0, mediumCount),
 				...easyPool.slice(0, roundSize - mediumCount),
 			]);
 		}
