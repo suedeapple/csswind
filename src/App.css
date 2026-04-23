@@ -583,18 +583,18 @@ main {
 	color: var(--text);
 	border-color: var(--text);
 }
-.level-picker {
+
+.level-picker,
+.question-picker,
+.mode-picker {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
 	margin-bottom: 16px;
 }
-.round-picker {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-	margin-bottom: 24px;
+.mode-picker {
 	border-bottom: 1px solid var(--border);
+	margin-bottom: 24px;
 	padding-bottom: 24px;
 }
 .btn-level {

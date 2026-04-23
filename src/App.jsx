@@ -80,6 +80,7 @@ export default function CSSWind() {
 	const [phase, setPhase] = useState("home"); // "home" | "quiz" | "results"
 	const [difficulty, setDifficulty] = useState("easy"); // "easy" | "medium" | "expert"
 	const [roundSize, setRoundSize] = useState(10); // 10 | 15 | 20
+	const [direction, setDirection] = useState("mixed"); // "mixed" | "tw2css" | "css2tw"
 	const [questions, setQuestions] = useState([]);
 	const [currIndex, setCurrIndex] = useState(0);
 	const [input, setInput] = useState("");
@@ -164,7 +165,7 @@ export default function CSSWind() {
 			.slice(0, roundSize)
 			.map((q) => ({
 				...q,
-				dir: Math.random() < 0.5 ? "tw2css" : "css2tw",
+				dir: direction === "mixed" ? (Math.random() < 0.5 ? "tw2css" : "css2tw") : direction,
 			}));
 		clearInterval(timerRef.current);
 		setQuestions(picked);
@@ -345,7 +346,7 @@ export default function CSSWind() {
 										))}
 									</div>
 
-									<div className="round-picker">
+									<div className="question-picker">
 										{[10, 15, 20].map((n) => (
 											<button
 												key={n}
@@ -353,6 +354,22 @@ export default function CSSWind() {
 												onClick={() => setRoundSize(n)}
 											>
 												{n} questions
+											</button>
+										))}
+									</div>
+
+									<div className="mode-picker">
+										{[
+											{ value: "mixed", label: "Mixed" },
+											{ value: "tw2css", label: "TW → CSS" },
+											{ value: "css2tw", label: "CSS → TW" },
+										].map(({ value, label }) => (
+											<button
+												key={value}
+												className={`btn btn-level${direction === value ? " active" : ""}`}
+												onClick={() => setDirection(value)}
+											>
+												{label}
 											</button>
 										))}
 									</div>
