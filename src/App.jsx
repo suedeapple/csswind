@@ -492,6 +492,15 @@ export default function CSSWind() {
 											<span className="book-author">by Theo Soti</span>
 										</a>
 									</div>
+
+									<a
+										className="btn btn-support btn-play"
+										href="https://ko-fi.com/suedeapple"
+										target="_blank"
+										rel="noreferrer"
+									>
+										Support CSSwind ♥
+									</a>
 								</section>
 
 								<AdBanner />
@@ -679,6 +688,15 @@ export default function CSSWind() {
 												<span className="book-author">by Theo Soti</span>
 											</a>
 										</div>
+
+										<a
+											className="btn btn-support btn-play"
+											href="https://ko-fi.com/suedeapple"
+											target="_blank"
+											rel="noreferrer"
+										>
+											Support CSSwind ♥
+										</a>
 
 										<div className="btn-row">
 											<button className="btn btn-ghost" onClick={goHome}>

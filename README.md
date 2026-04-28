@@ -31,6 +31,10 @@ npm run dev
 
 - Brendan Rice @ [gumpshen.com](https://gumpshen.com)
 
+## Support
+
+If you find CSSwind useful, consider [buying me a coffee](https://ko-fi.com/suedeapple) ♥
+
 ## Disclaimer
 
 Not affiliated with or endorsed by Tailwind Labs, Inc.
