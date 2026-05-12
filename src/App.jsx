@@ -46,38 +46,6 @@ function formatTime(seconds) {
 	return `${m}:${s}`;
 }
 
-// ─── AD BANNER ────────────────────────────────────────────────────────────────
-
-const ADSENSE_CLIENT = import.meta.env.VITE_ADSENSE_CLIENT;
-const ADSENSE_SLOT = import.meta.env.VITE_ADSENSE_SLOT;
-
-function AdBanner() {
-	const ref = useRef(null);
-
-	useEffect(() => {
-		if (!ADSENSE_CLIENT || !ADSENSE_SLOT || !ref.current) return;
-		try {
-			(window.adsbygoogle = window.adsbygoogle || []).push({});
-		} catch (_) {}
-	}, []);
-
-	if (!ADSENSE_CLIENT || !ADSENSE_SLOT) return null;
-
-	return (
-		<section className="ad-banner">
-			<ins
-				ref={ref}
-				className="adsbygoogle"
-				style={{ display: "block" }}
-				data-ad-client={ADSENSE_CLIENT}
-				data-ad-slot={ADSENSE_SLOT}
-				data-ad-format="auto"
-				data-full-width-responsive="true"
-				data-color-scheme="dark"
-			/>
-		</section>
-	);
-}
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 export default function CSSWind() {
@@ -503,8 +471,7 @@ export default function CSSWind() {
 									</a>
 								</section>
 
-								<AdBanner />
-							</>
+						</>
 						)}
 
 						{/* QUIZ */}
@@ -708,7 +675,6 @@ export default function CSSWind() {
 										</div>
 									</div>
 								</section>
-								<AdBanner />
 							</>
 						)}
 					</main>

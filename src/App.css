@@ -1,16 +1,3 @@
-/* Ad banner */
-
-.ad-banner {
-	width: 100%;
-	max-width: 100%;
-	overflow: hidden;
-}
-
-.ad-banner .adsbygoogle {
-	width: 100%;
-	max-width: 100%;
-}
-
 /* Footer */
 .footer {
 	text-align: center;
